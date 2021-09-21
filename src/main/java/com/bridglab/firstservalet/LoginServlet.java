@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 		urlPatterns= {"/LoginServlet"},
 		initParams= {
 				@WebInitParam(name="user",value="Sneha"),
-				@WebInitParam(name="password",value="qwerty")
+				@WebInitParam(name="password",value="Sneha@123")
 				
 		}
 			
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 		String userID=getServletConfig().getInitParameter("user");
 		String password=getServletConfig().getInitParameter("password");
 		
-		if( user.matches("^[A-Z][a-z]{2,}")) {
+		if( user.matches("^[A-Z][a-z]{2,}")&& pwd.matches("^(?=.{8,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\\W).*$")) {
 			if(userID.equals(user) && password.equals(pwd))
 			{
 				request.setAttribute("user", user);
